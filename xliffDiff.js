@@ -86,7 +86,8 @@ function compareFiles() {
             }
         }
         
-        // If there in nothing matched,
+        // 만약 동일한 파일을 찾지 못하면, 삭제된 것으로 간주하고
+        // oldData의 내용으로 채운다.
         if (found == false) {
             resultData += "    <file datatype=\"" + datatype + "\"";
             resultData += " original=\"" + original + "\"";
