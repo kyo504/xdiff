@@ -3,7 +3,7 @@ var parseString = require("xml2js").parseString;
 
 var oldFileName, newFileName, resultFileName;
 var oldData, newData, resultData;
-boolean bShowChange = false;    
+var bShowChange = false;    
 
 process.argv.forEach(function (val, index, array) {
     if (index == 2) {
@@ -78,7 +78,7 @@ function compareFiles() {
         m = newData.xliff.file.length;
         found = false;
         for (j = 0; j < m; j++) {
-            if ((original == newData.xliff.file[j].$.original) && (datatype == newData.xliff.file[j].$.datatype) {
+            if ((original == newData.xliff.file[j].$.original) && (datatype == newData.xliff.file[j].$.datatype)) {
                 resultData += compareXliffFiles(oldData.xliff.file[i], newData.xliff.file[j]);
                 newData.xliff.file.splice(j, 1); // why? 
                 found = true;
@@ -131,17 +131,18 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
     var added = [];
     var removed = [];
     var i, j, l, m;
-    var source, target, newSource, newTarget;
+    var oldSource, oldTarget, newSource, newTarget;
     var found;
     
     l = oldXliffFile.body[0]["trans-unit"].length;
     for (i = 0; i < l; i++) {
-        source = "";
+        oldSource = "";
         if (typeof oldXliffFile.body[0]["trans-unit"][i].source[0] == "object") {
-            source = oldXliffFile.body[0]["trans-unit"][i].source[0]._;
+            oldSource = oldXliffFile.body[0]["trans-unit"][i].source[0]._;
         } else {
-            source = oldXliffFile.body[0]["trans-unit"][i].source[0];
+            oldSource = oldXliffFile.body[0]["trans-unit"][i].source[0];
         }
+        
         m = newXliffFile.body[0]["trans-unit"].length;
         found = false;
         for (j = 0; j < m; j++) {
@@ -151,13 +152,13 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
             } else {
                 newSource = newXliffFile.body[0]["trans-unit"][j].source[0];
             }
-            if (source == newSource) {
+            if (oldSource == newSource) {
                 found = true;
-                target = "";
+                oldTarget = "";
                 if (typeof oldXliffFile.body[0]["trans-unit"][i].target[0] == "object") {
-                    target = oldXliffFile.body[0]["trans-unit"][i].target[0]._;
+                    oldTarget = oldXliffFile.body[0]["trans-unit"][i].target[0]._;
                 } else {
-                    target = oldXliffFile.body[0]["trans-unit"][i].target[0];
+                    oldTarget = oldXliffFile.body[0]["trans-unit"][i].target[0];
                 }
                 newTarget = "";
                 if (typeof newXliffFile.body[0]["trans-unit"][j].target[0] == "object") {
@@ -165,7 +166,7 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
                 } else {
                     newTarget = newXliffFile.body[0]["trans-unit"][j].target[0];
                 }
-                if (target != newTarget) {
+                if (oldTarget != newTarget) {
                     modified.push(newXliffFile.body[0]["trans-unit"][j]);
                 }
                 newXliffFile.body[0]["trans-unit"].splice(j, 1)
