@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.2">
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ar-SA">
+      <body>
+         <trans-unit id="timemachine_45">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="as-IN">
+      <body>
+         <trans-unit id="timemachine_61">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="bg-BG">
+      <body>
+         <trans-unit id="timemachine_28">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="bn-IN">
+      <body>
+         <trans-unit id="timemachine_57">
+            <source>Time Machine</source>
+            <target>TIME MACHINE</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="bs-Latn-BA">
+      <body>
+         <trans-unit id="timemachine_39">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="cs-CZ">
+      <body>
+         <trans-unit id="timemachine_18">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="da-DK">
+      <body>
+         <trans-unit id="timemachine_23">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="de-DE">
+      <body>
+         <trans-unit id="timemachine_14">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="el-GR">
+      <body>
+         <trans-unit id="timemachine_19">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="en-CN">
+      <body>
+         <trans-unit id="timemachine_3">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="en-GB">
+      <body>
+         <trans-unit id="timemachine_2">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="en-US">
+      <body>
+         <trans-unit id="timemachine_1">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="es-CO">
+      <body>
+         <trans-unit id="timemachine_12">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="es-ES">
+      <body>
+         <trans-unit id="timemachine_11">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="et-EE">
+      <body>
+         <trans-unit id="timemachine_34">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="fa-IR">
+      <body>
+         <trans-unit id="timemachine_46">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="fi-FI">
+      <body>
+         <trans-unit id="timemachine_17">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="fr-CA">
+      <body>
+         <trans-unit id="timemachine_8">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="fr-FR">
+      <body>
+         <trans-unit id="timemachine_7">
+            <source>Time Machine</source>
+            <target>Enregistreur numérique</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ga-IE">
+      <body>
+         <trans-unit id="timemachine_50">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="gu-IN">
+      <body>
+         <trans-unit id="timemachine_60">
+            <source>Time Machine</source>
+            <target>ટાઇમ મશીન</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="he-IL">
+      <body>
+         <trans-unit id="timemachine_47">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="hi-IN">
+      <body>
+         <trans-unit id="timemachine_51">
+            <source>Time Machine</source>
+            <target>टाइम मशीन</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="hr-HR">
+      <body>
+         <trans-unit id="timemachine_29">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="hu-HU">
+      <body>
+         <trans-unit id="timemachine_20">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="id-ID">
+      <body>
+         <trans-unit id="timemachine_44">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="it-IT">
+      <body>
+         <trans-unit id="timemachine_15">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ja-JP">
+      <body>
+         <trans-unit id="timemachine_13">
+            <source>Time Machine</source>
+            <target>録画リスト</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="kk-Cyrl-KZ">
+      <body>
+         <trans-unit id="timemachine_33">
+            <source>Time Machine</source>
+            <target>Уақыт машинасы</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="kn-IN">
+      <body>
+         <trans-unit id="timemachine_53">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ko-KR">
+      <body>
+         <trans-unit id="timemachine_0">
+            <source>Time Machine</source>
+            <target>타임머신</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ku-Arab-IQ">
+      <body>
+         <trans-unit id="timemachine_48">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="lt-LT">
+      <body>
+         <trans-unit id="timemachine_36">
+            <source>Time Machine</source>
+            <target>TIME MACHINE</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="lv-LV">
+      <body>
+         <trans-unit id="timemachine_35">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="mk-MK">
+      <body>
+         <trans-unit id="timemachine_40">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ml-IN">
+      <body>
+         <trans-unit id="timemachine_56">
+            <source>Time Machine</source>
+            <target>ടൈം മെഷിന്‍</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="mn-Cyrl-MN">
+      <body>
+         <trans-unit id="timemachine_52">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="mr-IN">
+      <body>
+         <trans-unit id="timemachine_59">
+            <source>Time Machine</source>
+            <target>TIME MACHINE</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ms-MY">
+      <body>
+         <trans-unit id="timemachine_43">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="nb-NO">
+      <body>
+         <trans-unit id="timemachine_25">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="nl-NL">
+      <body>
+         <trans-unit id="timemachine_21">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="pa-IN">
+      <body>
+         <trans-unit id="timemachine_58">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="pl-PL">
+      <body>
+         <trans-unit id="timemachine_22">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="pt-BR">
+      <body>
+         <trans-unit id="timemachine_9">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="pt-PT">
+      <body>
+         <trans-unit id="timemachine_10">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ro-RO">
+      <body>
+         <trans-unit id="timemachine_24">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ru-RU">
+      <body>
+         <trans-unit id="timemachine_30">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="sk-SK">
+      <body>
+         <trans-unit id="timemachine_37">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="sl-SI">
+      <body>
+         <trans-unit id="timemachine_26">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="sq-AL">
+      <body>
+         <trans-unit id="timemachine_38">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="sr-Latn-RS">
+      <body>
+         <trans-unit id="timemachine_27">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="sv-SE">
+      <body>
+         <trans-unit id="timemachine_16">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ta-IN">
+      <body>
+         <trans-unit id="timemachine_55">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="te-IN">
+      <body>
+         <trans-unit id="timemachine_54">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="th-TH">
+      <body>
+         <trans-unit id="timemachine_42">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="tr-TR">
+      <body>
+         <trans-unit id="timemachine_31">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="uk-UA">
+      <body>
+         <trans-unit id="timemachine_32">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ur-IN">
+      <body>
+         <trans-unit id="timemachine_62">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="uz-Latn-UZ">
+      <body>
+         <trans-unit id="timemachine_49">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="vi-VN">
+      <body>
+         <trans-unit id="timemachine_41">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="zh-Hans-CN">
+      <body>
+         <trans-unit id="timemachine_4">
+            <source>Time Machine</source>
+            <target>左右时间</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="zh-Hant-HK">
+      <body>
+         <trans-unit id="timemachine_5">
+            <source>Time Machine</source>
+            <target>內置數碼錄影功能</target>
+         </trans-unit>
+      </body>
+   </file>
+   <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="zh-Hant-TW">
+      <body>
+         <trans-unit id="timemachine_6">
+            <source>Time Machine</source>
+            <target>Time Machine</target>
+         </trans-unit>
+      </body>
+   </file>
+</xliff>
