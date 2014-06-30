@@ -6,6 +6,10 @@
             <source>Time Machine</source>
             <target>타이머시</target>
          </trans-unit>
+         <trans-unit id="timemachine_1">
+            <source>Close</source>
+            <target>닫음</target>
+         </trans-unit>
       </body>
    </file>
    <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="zh-Hans-CN">

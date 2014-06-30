@@ -24,8 +24,11 @@ var xDiffVersion = "0.0.1";
 
 process.argv.forEach(function (val, index, array) {
 
-    if(val === "--version"){
-        console.log("xDiff version : " + xDiffVersion);
+    if(val === "--version" || val === "-v"){
+        displayVersion();
+        process.exit();
+    }else if( val === "--help" || val === "-h"){
+        displayHelp();
         process.exit();
     }
 
@@ -50,6 +53,16 @@ process.argv.forEach(function (val, index, array) {
     }
 });
 
+function displayVersion() {
+    console.log("xDiff version : " + xDiffVersion);
+};
+
+function displayHelp() {
+    console.log("Usage: xdiff old_xliff_name new_xliff_name result_xliff_name");
+    console.log("-v or --version : show current version of xdiff");
+    console.log("-h or --help : show how to use this app")
+};
+
 function loadOldFile() {
     console.log("Load old file");
     fs.readFile(oldFileName, "utf8", function(err, data) {
@@ -65,7 +78,10 @@ function loadNewFile() {
     fs.readFile(newFileName, "utf8", function(err, data) {
         parseString(data, function (err, result) {
             newData = result;
+
+            console.time('processTime');
             compareFiles();
+            console.timeEnd('processTime');
         });
     });
 };
