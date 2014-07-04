@@ -1,12 +1,16 @@
 var fs = require("fs");
-var parseString = require("xml2js").parseString;
+var xml2js = require("xml2js");
+var parser = new xml2js.Parser();
+//var parseString = require("xml2js").parseString;
 
 var oldFileName, newFileName, resultFileName;
 var oldData, newData, resultData;
 var bShowChange = false;    
 
 var xDiffVersion = "0.0.1";
-
+var oldFileList, newFileList;
+var option;
+var oldFolderName = "", newFolderName = "", resultFolderName = "";
 // process.stdin.setEncoding('utf8');
 
 // process.stdin.on('readable', function() {
@@ -33,25 +37,67 @@ process.argv.forEach(function (val, index, array) {
     }
 
     if (index == 2) {
-        console.log("Old file name : " + val);
-        oldFileName = val;
-    } else if (index == 3) {
-        console.log("New file name : " + val);
-        newFileName = val;
-    } else if (index == 4) {
-        console.log("Result file name : " + val);
-        resultFileName = val;
-        loadOldFile();
-    } else if (index == 5){
-        console.log("Show before and after : " + val);
-        if( val === "-c" ){
-            console.log("Now user can see before and after on target field.")
-            bShowChange = true;
+        if (val == "-d") {
+            option = "comparefolders"
+        } else if(val == "-f"){
+            option = "comparefiles"
         }
-    } else{
-//        console.log("Why here??");
+    } else if (index == 3) {
+        if (option == "comparefolders") {
+            console.log("old directory name : " + val);
+            oldFolderName = val;
+        } else if (option == "comparefiles") {
+            console.log("Old file name : " + val);
+            oldFileName = val;
+        }
+    } else if (index == 4) {
+        if (option == "comparefolders") {
+            console.log("New directory name : " + val);
+            newFolderName = val;
+        } else if (option == "comparefiles") {
+            console.log("New file name : " + val);
+            newFileName = val;
+        }
+    } else if (index == 5) {
+        if (option == "comparefolders") {
+            console.log("result directory name : " + val);
+            resultFolderName = val;
+            compareFolders(oldFolderName, newFolderName);
+        } else if (option == "comparefiles") {
+            console.log("Result file name : " + val);
+            resultFileName = val;
+            loadOldFile();
+        }
+    } else {
+        console.log("ERROR...");
     }
+
 });
+
+function compareFolders(oldFolderName, newFolderName) {
+    oldFileList = fs.readdirSync(oldFolderName);
+    newFileList = fs.readdirSync(newFolderName);
+    // if(!oldFileName || !newFolderName) {
+    //     console.log("There is no oldFolderName.");
+    //     return;
+    // }
+
+    for(var i=0; i<oldFileList.length; i++) {
+        oldFileName = "";
+        newFileName = "";
+        resultFileName = "";
+
+        for(var j=0; j<newFileList.length; j++) {
+            if (oldFileList[i] == newFileList[j]) {
+                oldFileName = oldFileList[i];
+                newFileName = oldFileName;
+                resultFileName = oldFileName;
+                loadOldFile();
+                break;
+            }
+        }
+    }
+};
 
 function displayVersion() {
     console.log("xDiff version : " + xDiffVersion);
@@ -64,30 +110,53 @@ function displayHelp() {
 };
 
 function loadOldFile() {
-    console.log("Load old file");
-    fs.readFile(oldFileName, "utf8", function(err, data) {
-        parseString(data, function (err, result) {
-            oldData = result;
-            loadNewFile();
-        });
+    console.log("Load old file : " + oldFileName);
+    // fs.readFile(oldFileName, "utf8", function(err, data) {
+    //     oldData = parser.parseString(data);
+    // });
+
+    parser.parseString(fs.readFileSync(oldFolderName+oldFileName, "utf8"), function(err, data) {
+        oldData = data;
+        loadNewFile();
     });
+
+    // parser(fs.readFileSync(oldFileName, "utf8"), function(err, result) {
+    //     oldData = result;
+    //     loadNewFile();
+    // })
 };
 
 function loadNewFile() {
-    console.log("Load new file");
-    fs.readFile(newFileName, "utf8", function(err, data) {
-        parseString(data, function (err, result) {
-            newData = result;
+    console.log("Load new file : " + newFileName);
+    parser.parseString(fs.readFileSync(newFolderName+newFileName, "utf8"), function(err, data) {
+        newData = data;
 
-            console.time('processTime');
-            compareFiles();
-            console.timeEnd('processTime');
-        });
+        console.time('processTime');
+        compareFiles();
+        console.timeEnd('processTime');
     });
+
+    // fs.readFile(newFileName, "utf8", function(err, data) {
+    //     parseString(data, function (err, result) {
+    //         newData = result;
+
+    //         console.time('processTime');
+    //         compareFiles();
+    //         console.timeEnd('processTime');
+    //     });
+    // });
+
+    // parseString(fs.readFileSync(newFileName, "utf8", function(err, data) {
+    //     newData = result;
+
+    //     console.time('processTime');
+    //     compareFiles();
+    //     console.timeEnd('processTime');        
+    // }));
 };
 
 function saveResult() {
-    fs.writeFile(resultFileName, resultData, "utf8");
+    fs.writeFileSync(resultFolderName+resultFileName, resultData, "utf8");
 };
 
 function compareFiles() {
@@ -108,7 +177,7 @@ function compareFiles() {
     var str;
     
     resultData = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE xliff PUBLIC \"-//XLIFF//DTD XLIFF//EN\" \"http://www.oasis-open.org/committees/xliff/documents/xliff.dtd\">\n"
-    resultData += "<xliff version=\"1.2\">"
+    resultData += "<xliff version=\"1.2\">\n"
 
     l = oldData.xliff.file.length;
     
@@ -121,10 +190,9 @@ function compareFiles() {
         m = newData.xliff.file.length;
         found = false;
         for (j = 0; j < m; j++) {
-            if ((original == newData.xliff.file[j].$.original) && 
-                (datatype == newData.xliff.file[j].$.datatype) &&
-                (srcLang == newData.xliff.file[j].$["source-language"]) &&
-                (tgtLang == newData.xliff.file[j].$["target-language"])) {
+            if ((original == newData.xliff.file[j].$.original) && (datatype == newData.xliff.file[j].$.datatype) &&
+                (srcLang == newData.xliff.file[j].$["source-language"]) && (tgtLang == newData.xliff.file[j].$["target-language"])) {
+
                 resultData += compareXliffFiles(oldData.xliff.file[i], newData.xliff.file[j]);
                 newData.xliff.file.splice(j, 1); // why? 
                 found = true;
@@ -143,7 +211,7 @@ function compareFiles() {
             n = oldData.xliff.file[i].body[0]["trans-unit"].length;
             for (k = 0; k < n; k++) {
                 unit = oldData.xliff.file[i].body[0]["trans-unit"][k];
-                resultData += stringuifyUnit(unit, null, "removed");
+                resultData += stringifyUnit(unit, null, "removed");
             }
             resultData += "        </body>\n"
             resultData += "    </file>\n";
@@ -161,7 +229,7 @@ function compareFiles() {
         n = newData.xliff.file[i].body[0]["trans-unit"].length;
         for (k = 0; k < n; k++) {
             unit = newData.xliff.file[i].body[0]["trans-unit"][k];
-            resultData += stringuifyUnit(unit, null,"added");
+            resultData += stringifyUnit(null, unit,"added");
         }
         resultData += "        </body>\n"
         resultData += "    </file>\n";
@@ -179,28 +247,56 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
     var added = [];
     var removed = [];
     var i, j, l, m;
-    var oldSource, oldTarget, newSource, newTarget;
+    var oldSource, oldKey, oldTarget, newKey, newSource, newTarget;
     var found;
     
     l = oldXliffFile.body[0]["trans-unit"].length;
     for (i = 0; i < l; i++) {
-        oldSource = "";
+        oldSource   = "";
+        oldKey      = "";
+
+        // if datatype is 'x-qml'
+        // if datatype is others...
+        
+
+
+
         if (typeof oldXliffFile.body[0]["trans-unit"][i].source[0] == "object") {
-            oldSource = oldXliffFile.body[0]["trans-unit"][i].source[0]._;
+            oldSource   = oldXliffFile.body[0]["trans-unit"][i].source[0]._;
+            oldKey      = oldXliffFile.body[0]["trans-unit"][i].source[0].$["x-key"];
         } else {
-            oldSource = oldXliffFile.body[0]["trans-unit"][i].source[0];
+            if(oldXliffFile.$.datatype == "x-qml"){
+                oldSource   = oldXliffFile.body[0]["trans-unit"][i].source[0];
+                oldKey      = oldXliffFile.body[0]["trans-unit"][i].$["x-disambiguation"] ? oldXliffFile.body[0]["trans-unit"][i].$["x-disambiguation"] : "";
+            }else{
+                oldSource = oldXliffFile.body[0]["trans-unit"][i].source[0];
+            }
         }
         
         m = newXliffFile.body[0]["trans-unit"].length;
         found = false;
         for (j = 0; j < m; j++) {
             newSource = "";
+            newKey = "";
+
             if (typeof newXliffFile.body[0]["trans-unit"][j].source[0] == "object") {
-                newSource = newXliffFile.body[0]["trans-unit"][j].source[0]._;
+                newSource   = newXliffFile.body[0]["trans-unit"][j].source[0]._;
+                newKey      = newXliffFile.body[0]["trans-unit"][j].source[0].$["x-key"];
             } else {
-                newSource = newXliffFile.body[0]["trans-unit"][j].source[0];
+                if(newXliffFile.$.datatype == "x-qml"){
+                    //console.log("oldSource : " + oldXliffFile.body[0]["trans-unit"][i].source[0]);
+                    //console.log("newSource : " + newXliffFile.body[0]["trans-unit"][j].source[0]);
+
+
+                    newSource   = newXliffFile.body[0]["trans-unit"][j].source[0];
+                    newKey      = newXliffFile.body[0]["trans-unit"][j].$["x-disambiguation"] ? newXliffFile.body[0]["trans-unit"][j].$["x-disambiguation"] : "";
+                }else{
+                    newSource = newXliffFile.body[0]["trans-unit"][j].source[0];
+                }
             }
-            if (oldSource == newSource) {
+
+
+            if ((oldSource == newSource) && (oldKey == newKey)) {
                 found = true;
                 oldTarget = "";
                 if (typeof oldXliffFile.body[0]["trans-unit"][i].target[0] == "object") {
@@ -244,21 +340,21 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
     if (modified.length > 0) {
         l = modified.length;
         for (i = 0; i < l; i++) {
-            results += stringuifyUnit(modified[i], modifiedOld[i], "modified");
+            results += stringifyUnit(modifiedOld[i], modified[i], "modified");
         }
     }
     
     if (added.length > 0) {
         l = added.length;
         for (i = 0; i < l; i++) {
-            results += stringuifyUnit(added[i], null, "added");
+            results += stringifyUnit(null, added[i], "added");
         }
     }
     
     if (removed.length > 0) {
         l = removed.length;
         for (i = 0; i < l; i++) {
-            results += stringuifyUnit(removed[i], null, "removed");
+            results += stringifyUnit(removed[i], null, "removed");
         }
     }
     
@@ -270,17 +366,39 @@ function compareXliffFiles(oldXliffFile, newXliffFile) {
     return results;
 }
 
-function stringuifyUnit(unit, unit2, state) {
+function stringifyUnit(oldUnit, newUnit, state) {
     var results, str;
+    var unit;
     results = "";
-    if (unit.$ && unit.$.id) {
-        results += "            <trans-unit id=\"" + unit.$.id + "\" state=\"" + state + "\">\n";
+
+    if (state == "added") {
+        unit = newUnit;
+    } else if (state == "removed") {
+        unit = oldUnit;
+    } else if (state == "modified") {
+        unit = oldUnit;
     } else {
-        results += "            <trans-unit  state=\"" + state + "\">\n"
+        console.log("No state value : " + state);
+        return;
+    }
+
+    if (!unit.$) {
+        return ;
+    }
+
+    if (unit.$["x-disambiguation"]) {
+        results += "            <trans-unit id=\"" + unit.$.id + "\" state=\"" + state + " \" x-disambiguation=\"" + unit.$["x-disambiguation"] +"\">\n";
+    } else {
+        results += "            <trans-unit id=\"" + unit.$.id + "\" state=\"" + state + "\">\n";
     }
 
     // Source
-    results += "                <source>"
+    if( (typeof unit.source[0] == "object") && unit.source[0].$["x-key"]) {
+        results += "                <source " + "x-key=\"" + unit.source[0].$["x-key"] + "\">"
+    } else {
+        results += "                <source>"
+    }
+
     if (typeof unit.source[0] == "object") {
         str = unit.source[0]._;
     } else {
@@ -296,31 +414,67 @@ function stringuifyUnit(unit, unit2, state) {
     */
     results += str + "</source>\n"
 
-    if( unit2 != null ){
+    if( state == "added" ) {
+        // Before
+        results += "                <target-before>"
+        str = "";
+        results += str + "</target-before>\n"
+
+        // After  
+        results += "                <target-after>"
+        if (typeof unit.target[0] == "object") {
+            str = unit.target[0]._;
+        } else {
+            str = unit.target[0];
+        }
+        str = str.replace(/&/gi, "&amp;");
+        str = str.replace(/</gi, "&lt;");
+        str = str.replace(/>/gi, "&gt;");
+        results += str + "</target-after>\n"
+
+    } else if (state == "removed") {
         // Before target is changed 
         results += "                <target-before>"
-        if (typeof unit2.target[0] == "object") {
-            str = unit2.target[0]._;
+        if (typeof unit.target[0] == "object") {
+            str = unit.target[0]._;
         } else {
-            str = unit2.target[0];
+            str = unit.target[0];
         }
         str = str.replace(/&/gi, "&amp;");
         str = str.replace(/</gi, "&lt;");
         str = str.replace(/>/gi, "&gt;");
         results += str + "</target-before>\n"
+
+        // Before
+        results += "                <target-after>"
+        str = "";
+        results += str + "</target-after>\n"
+    } else {//if( state == "modified" ){
+        // Before target is changed 
+        results += "                <target-before>"
+        if (typeof unit.target[0] == "object") {
+            str = unit.target[0]._;
+        } else {
+            str = unit.target[0];
+        }
+        str = str.replace(/&/gi, "&amp;");
+        str = str.replace(/</gi, "&lt;");
+        str = str.replace(/>/gi, "&gt;");
+        results += str + "</target-before>\n"
+
+        // After target is changed
+        results += "                <target-after>"
+        if (typeof newUnit.target[0] == "object") {
+            str = newUnit.target[0]._;
+        } else {
+            str = newUnit.target[0];
+        }
+        str = str.replace(/&/gi, "&amp;");
+        str = str.replace(/</gi, "&lt;");
+        str = str.replace(/>/gi, "&gt;");
+        results += str + "</target-after>\n"
     }
 
-    // After target is changed
-    results += "                <target-after>"
-    if (typeof unit.target[0] == "object") {
-        str = unit.target[0]._;
-    } else {
-        str = unit.target[0];
-    }
-    str = str.replace(/&/gi, "&amp;");
-    str = str.replace(/</gi, "&lt;");
-    str = str.replace(/>/gi, "&gt;");
-    results += str + "</target-after>\n"
 
     // If there is note tag, attach it to results.
     if (unit.note) {
@@ -339,4 +493,3 @@ function stringuifyUnit(unit, unit2, state) {
 
     return results;
 }
-

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.2">
+   <file datatype="x-qml" original="quicksettings" source-language="en-KR" target-language="ko-KR">
+      <body>
+         <trans-unit id="quicksettings_1" x-disambiguation="Aspect Ratio.Set by Program">
+            <source>Set By Program</source>
+            <target>자동화면비</target>
+         </trans-unit>
+      </body>
+   </file>
    <file datatype="javascript" original="timemachine" source-language="en-KR" target-language="ko-KR">
       <body>
          <trans-unit id="timemachine_41">
